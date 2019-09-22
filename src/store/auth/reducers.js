@@ -1,8 +1,9 @@
-import { AUTH_CHANGE_EMAIL_TEXT, AUTH_CHANGE_PASSWORD_TEXT } from "./actions";
+import { AUTH_CHANGE_EMAIL_TEXT, AUTH_CHANGE_PASSWORD_TEXT, AUTH_SESSION } from "./actions";
 
 const defaultState = {
-  email: '',
-  password: ''
+    email: '',
+    password: '',
+    session: false
 };
 
 export const authReducer = (state = defaultState, action) => {
@@ -17,6 +18,12 @@ export const authReducer = (state = defaultState, action) => {
             return {
                 ...state,
                 password: action.payload
+            };
+
+        case AUTH_SESSION:
+            return {
+                ...state,
+                session: action.payload
             };
 
         default: return state;

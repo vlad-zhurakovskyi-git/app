@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import firebase from "../../firebase";
 
 export default class Auth extends Component{
     constructor(props) {
@@ -6,6 +7,7 @@ export default class Auth extends Component{
 
         this.onEmailChange = this.onEmailChange.bind(this);
         this.onPasswordChange = this.onPasswordChange.bind(this);
+        this.auth = this.auth.bind(this);
     }
 
     onEmailChange(event) {
@@ -20,6 +22,16 @@ export default class Auth extends Component{
         setPasswordText(event.target.value);
     }
 
+    auth() {
+        const { email, password } = this.props;
+
+        firebase.auth().signInWithEmailAndPassword(email, password).then().catch(function(error) {
+            let errorCode = error.code;
+            let errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+        });
+    }
+
     render() {
         const { email, password } = this.props;
 
@@ -27,7 +39,7 @@ export default class Auth extends Component{
             <section className="auth">
                 <div className="container">
                     <div className="row justify-content-md-center">
-                        <div className="col-4">
+                        <div className="col-xs-4">
                             <h1 className="auth__title text-center">Sign in to Application</h1>
                             <form className="auth-form">
                                 <div className="auth-form__container">
@@ -53,7 +65,7 @@ export default class Auth extends Component{
                                         />
                                     </div>
 
-                                    <button className="btn btn-primary w-100" type="button">Sign In</button>
+                                    <button onClick={this.auth} className="btn btn-primary w-100" type="button">Sign In</button>
                                 </div>
                             </form>
                         </div>
