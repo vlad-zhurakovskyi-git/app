@@ -7,10 +7,11 @@ import firebase from "../../firebase";
 
 class AuthContainer extends Component{
     componentDidMount() {
-        const { setSession } = this.props;
+        const { setSession, setLoad, session } = this.props;
 
         firebase.auth().onAuthStateChanged(user => {
-            user && setSession(true)
+            user && setSession(true);
+            !session && setLoad(true);
         });
     }
 
