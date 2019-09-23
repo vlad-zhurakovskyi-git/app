@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import firebase from "../../firebase";
+import TodoListContainer from "./todoList/TodoListContainer"
 
 export default class Main extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.unAuth = this.unAuth.bind((this))
     }
@@ -21,9 +22,9 @@ export default class Main extends Component {
     render() {
         return(
             <section className="page">
-                Добро пожаловать
+                <button className="page__btn-signout btn btn-light" onClick={this.unAuth}>Sign Out</button>
 
-                <button onClick={this.unAuth}>Sign Out</button>
+                <TodoListContainer/>
             </section>
         )
     }

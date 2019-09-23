@@ -61,7 +61,7 @@ export default class Auth extends Component{
                                                 onChange={this.onPasswordChange}
                                                 value={password}
                                                 className="form-control"
-                                                type="text"
+                                                type="password"
                                                 id="password"
                                             />
                                         </div>

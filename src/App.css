@@ -7,10 +7,29 @@
   background: linear-gradient(45deg, #007bff 50%, #F0C67D 50%);
 }
 
-.auth__wrapper {
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #F0C67D 50%, #007bff 50%);
+}
+
+.page__btn-signout {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+.auth__wrapper,
+.todo-list {
   background-color: #fff;
   padding: 30px;
   border-radius: 6px;
+}
+
+.todo-list {
+  min-width: 400px;
 }
 
 .auth__title,
@@ -62,4 +81,41 @@ label {
   left: 0;
   background: white;
   z-index: 9999;
+}
+
+.todo-item {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-item:first-child {
+  margin-top: 0;
+}
+
+.todo-item__info:hover .todo-item__label {
+  color: #dc3545;
+}
+
+.todo-item__info,
+.todo-item__checkbox{
+  cursor: pointer;
+}
+
+.todo-item__label {
+  cursor: pointer;
+  margin: 0 0 0 10px;
+}
+
+.todo-item .todo-item__delete {
+  padding: 2px;
+}
+
+.todo-item__delete .icon {
+  font-size: 16px;
+}
+
+.todo-item__delete:hover .icon {
+  color: #dc3545;
 }
