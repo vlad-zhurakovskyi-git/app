@@ -32,7 +32,7 @@ class TodoListContainer extends Component{
 
 const mapStateToProps = state => {
     return {
-        collection: state.todo.collection,
+        collection: state.todo.collection
     }
 };
 

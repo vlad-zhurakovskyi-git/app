@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TodoItemContainer from "./todoItem/TodoItemContainer";
+import NewTaskContainer from "./newTask/newTaskContainer";
 
 export default class TodoList extends Component {
     render() {
@@ -7,7 +8,9 @@ export default class TodoList extends Component {
 
         return(
             <section className="todo-list">
+                <NewTaskContainer/>
 
+                {/*{!collection.length && <div>empty</div>}*/}
 
                 {collection.map(( item, index ) =>
                     <TodoItemContainer

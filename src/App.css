@@ -29,12 +29,25 @@
 }
 
 .todo-list {
+  position: relative;
   min-width: 400px;
 }
 
 .auth__title,
-label {
+.auth label {
   color: #335577;
+}
+
+* {
+  transition: color 0.3s;
+}
+
+body .btn {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body .btn:focus {
+  box-shadow: none;
 }
 
 .auth input {
@@ -84,18 +97,27 @@ label {
 }
 
 .todo-item {
-  margin-top: 8px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
-.todo-item:first-child {
-  margin-top: 0;
+.todo-item:last-child {
+  margin-bottom: 0;
 }
 
 .todo-item__info:hover .todo-item__label {
-  color: #dc3545;
+  color: rgb(241, 83, 98);
+}
+
+.todo-item__label.todo__checked {
+  text-decoration: line-through;
+  color: #999a9c;
+}
+
+.todo-item__info {
+  display: flex;
+  align-items: center;
 }
 
 .todo-item__info,
@@ -103,19 +125,86 @@ label {
   cursor: pointer;
 }
 
+.todo-item__checkbox {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  color: #999a9c;
+}
+
+.todo-item__checkbox_hidden {
+  display: none;
+}
+
 .todo-item__label {
   cursor: pointer;
   margin: 0 0 0 10px;
+  color: #4e5052;
 }
 
 .todo-item .todo-item__delete {
   padding: 2px;
 }
 
+.todo-item .todo-item__edit {
+  margin-left: auto;
+}
+
 .todo-item__delete .icon {
   font-size: 16px;
+  color: #4e5052;
 }
 
 .todo-item__delete:hover .icon {
-  color: #dc3545;
+  color: rgb(241, 83, 98);
+}
+
+.new-task {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.new-task .new-task__input {
+  width: 100%;
+  height: 30px;
+  margin-right: 20px;
+  padding: 0 5px;
+  border: none;
+  border-bottom: 1px solid #4e5052;
+  border-radius: 0;
+  font-size: 14px;
+}
+
+
+.new-task .new-task__input:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom-color: rgb(241, 83, 98);
+}
+
+.new-task .new-task__input:focus::placeholder {
+  color: rgb(241, 83, 98);
+}
+
+.btn.new-task__create {
+  min-width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 3px;
+  background-color: #4e5052;
+  color: #fff;
+}
+
+.btn.new-task__create:hover {
+  background-color: rgb(241, 83, 98);
+  color: #fff;
+}
+
+.todo-item__wrapper {
+  display: flex;
+  align-items: center;
 }

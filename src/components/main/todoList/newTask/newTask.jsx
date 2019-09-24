@@ -1,22 +1,49 @@
 import React, {Component} from 'react';
-import TodoItemContainer from "./todoItem/TodoItemContainer";
+import firebase from "../../../../firebase";
 
 export default class NewTask extends Component {
-    render() {
-        const { collection } = this.props;
+    constructor(props) {
+        super(props);
 
+        this.createNewTask = this.createNewTask.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+
+    createNewTask() {
+        const { taskName, setTaskName } = this.props;
+
+        firebase.firestore().collection('todo_list').add({
+            task: taskName,
+            status: false
+        });
+
+        setTaskName('');
+    }
+
+    handleChange(event) {
+        const { setTaskName } = this.props;
+
+        setTaskName(event.target.value);
+    }
+
+    render() {
         return(
-            <section className="todo-list">
-                {collection.map(( item, index ) =>
-                    <TodoItemContainer
-                        key={ index }
-                        index = { index }
-                        todoTask={ item.task }
-                        todoStatus={ item.status }
-                        todoId={ item.id }
-                        todoDate={ item.date }
-                    />
-                )}
+            <section className="new-task">
+                <input
+                    placeholder="Сreate a new task"
+                    className="new-task__input"
+                    onChange={this.handleChange}
+                    value={this.props.taskName}
+                    type="text"
+                />
+
+                <button
+                    onClick={this.createNewTask}
+                    className="btn new-task__create"
+                    type="button">
+                    +
+                </button>
             </section>
         )
     }

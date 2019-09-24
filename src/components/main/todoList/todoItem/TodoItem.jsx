@@ -31,15 +31,25 @@ export default class TodoItem extends Component {
                 <div className="todo-item__info">
                     <input
                         onChange={this.toggleCheckbox}
-                        className="todo-item__checkbox"
+                        className="todo-item__checkbox_hidden"
                         type="checkbox"
                         id={`statusTask ${ index }`}
                         name={`statusTask ${ index }`}
                         value="statusTask"
                         checked={ todoStatus }
                     />
-                    <label className="todo-item__label" htmlFor={`statusTask ${ index }`}>{ todoTask }</label>
+
+                    <label className="todo-item__checkbox" htmlFor={`statusTask ${ index }`}>
+                        {todoStatus && <i className="icon icon-tick"/>}
+                    </label>
+
+                    <label
+                        className={`todo-item__label ${todoStatus && 'todo__checked'}`}
+                        htmlFor={`statusTask ${ index }`}>
+                        { todoTask }
+                    </label>
                 </div>
+                <button className="btn todo-item__edit">edit</button>
                 <button className="btn todo-item__delete" onClick={this.deleteItem}>
                     <i className="icon icon-backspace-outline"/>
                 </button>
