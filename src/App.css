@@ -172,7 +172,8 @@ body .btn:focus {
   color: #4e5052;
 }
 
-.todo-item__delete:hover .icon {
+.todo-item__delete:hover .icon,
+.todo-item__edit:hover .icon{
   color: rgb(241, 83, 98);
 }
 
