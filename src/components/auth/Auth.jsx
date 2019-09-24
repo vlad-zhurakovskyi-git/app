@@ -56,7 +56,12 @@ export default class Auth extends Component{
                                         </div>
 
                                         <div className="form-group">
-                                            <label className="form-label" htmlFor="password">Password</label>
+                                            <label
+                                                className="form-label"
+                                                htmlFor="password">
+                                                Password
+                                            </label>
+
                                             <input
                                                 onChange={this.onPasswordChange}
                                                 value={password}
@@ -66,7 +71,12 @@ export default class Auth extends Component{
                                             />
                                         </div>
 
-                                        <button onClick={this.auth} className="btn w-100" type="button">Sign In</button>
+                                        <button
+                                            onClick={this.auth}
+                                            className="btn w-100"
+                                            type="button">
+                                            Sign In
+                                        </button>
                                     </div>
                                 </form>
                             </div>

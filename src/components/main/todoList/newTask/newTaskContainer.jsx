@@ -8,7 +8,10 @@ class NewTaskContainer extends Component{
         const { taskName, setTaskName } = this.props;
 
         return(
-            <NewTask taskName={ taskName } setTaskName={ setTaskName }/>
+            <NewTask
+                taskName={ taskName }
+                setTaskName={ setTaskName }
+            />
         )
     }
 }

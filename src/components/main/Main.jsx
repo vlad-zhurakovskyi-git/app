@@ -22,7 +22,11 @@ export default class Main extends Component {
     render() {
         return(
             <section className="page">
-                <button className="page__btn-signout btn btn-light" onClick={this.unAuth}>Sign Out</button>
+                <button
+                    className="page__btn-signout btn btn-light"
+                    onClick={this.unAuth}>
+                    Sign Out
+                </button>
 
                 <TodoListContainer/>
             </section>

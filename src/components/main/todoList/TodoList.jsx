@@ -10,7 +10,7 @@ export default class TodoList extends Component {
             <section className="todo-list">
                 <NewTaskContainer/>
 
-                {/*{!collection.length && <div>empty</div>}*/}
+                {!collection.length && <div>empty</div>}
 
                 {collection.map(( item, index ) =>
                     <TodoItemContainer
