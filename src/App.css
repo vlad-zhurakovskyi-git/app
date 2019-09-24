@@ -110,6 +110,11 @@ body .btn:focus {
   color: rgb(241, 83, 98);
 }
 
+.todo-item__info:hover .todo-item__checkbox {
+  border-color: rgb(241, 83, 98);
+  color: rgb(241, 83, 98);
+}
+
 .todo-item__label.todo__checked {
   text-decoration: line-through;
   color: #999a9c;
@@ -126,13 +131,16 @@ body .btn:focus {
 }
 
 .todo-item__checkbox {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
+  border: 1px solid #999a9c;
+  border-radius: 3px;
   color: #999a9c;
+  transition: border-color 0.3s;
 }
 
 .todo-item__checkbox_hidden {
@@ -141,8 +149,14 @@ body .btn:focus {
 
 .todo-item__label {
   cursor: pointer;
-  margin: 0 0 0 10px;
+  margin: 0 10px;
   color: #4e5052;
+  border: none;
+}
+
+.todo-list .todo-item__label:focus {
+  box-shadow: none;
+  outline: none;
 }
 
 .todo-item .todo-item__delete {
@@ -207,4 +221,9 @@ body .btn:focus {
 .todo-item__wrapper {
   display: flex;
   align-items: center;
+}
+
+.todo__checked.todo__readonly {
+  text-decoration: none;
+  cursor: text;
 }
