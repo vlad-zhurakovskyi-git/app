@@ -76,12 +76,6 @@ export default class TodoItem extends Component {
                         onKeyDown={this.saveChange}
                         className={`todo-item__label ${!readOnly ? 'todo__readonly' : ''} ${todoStatus ? 'todo__checked' : ''}`}
                         value={todoTask} readOnly={readOnly}/>
-
-                    {/*<label*/}
-                    {/*    className={`todo-item__label ${todoStatus && 'todo__checked'}`}*/}
-                    {/*    htmlFor={`statusTask ${ index }`}>*/}
-                    {/*    { todoTask }*/}
-                    {/*</label>*/}
                 </div>
 
                 <button className="btn todo-item__edit" onClick={this.editMode}>
